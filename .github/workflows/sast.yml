@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   # Start: Version 3
   pull_request:
-   types: [opened, reopened, synchronize]
+    types: [opened, reopened, synchronize]
   # End: Version 3
 
 jobs:
@@ -21,41 +21,41 @@ jobs:
 
 
 
-      # # Start: Version 1
+      ## Start: Version 1
       # - name: Install dependencies
       #   shell: bash
       #   run: |
-      #    pip install bandit
+      #     pip install bandit
 
       # - name: Bandit
       #   shell: bash
       #   run: |
-      #    bandit -r .
-      # # End: Version 1
+      #     bandit -r .
+      ## End: Version 1
 
 
 
 
 
-      # Start: Version 2
+      ## Start: Version 2
       - name: Install dependencies
         shell: bash
         run: |
-         pip install bandit-sarif-formatter bandit
+          pip install bandit-sarif-formatter bandit
 
       - name: Bandit
         shell: bash
         run: |
-         bandit -f sarif -o results.sarif -r --exit-zero .
+          bandit -f sarif -o results.sarif -r --exit-zero .
         
       - name: Upload artifact
         uses: actions/upload-artifact@main
         with:
-         name: results.sarif
-         path: results.sarif
+          name: results.sarif
+          path: results.sarif
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
-         sarif_file: results.sarif
-      # End: Version 2
+          sarif_file: results.sarif
+      ## End: Version 2
