@@ -8,9 +8,6 @@ workflow_runs_url = "https://api.github.com/repos/{}/actions/runs"
 workflows = ['Container Scanning with Trivy', 'SAST with Bandit', 'Secrets scanning with GitLeaks']
 
 
-
-
-
 def serve_image(state):
     return send_file("bla.jpeg", mimetype="image/png")
 
