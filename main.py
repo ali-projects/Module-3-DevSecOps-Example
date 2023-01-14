@@ -11,7 +11,6 @@ workflows = ['Container Scanning with Trivy', 'SAST with Bandit', 'Secrets scann
 def serve_image(state):
     return send_file("bla.jpeg", mimetype="image/png")
 
-
 @app.route("/")
 def hello_world():
     try:
